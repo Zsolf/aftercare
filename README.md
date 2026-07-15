@@ -61,13 +61,13 @@ A system administrator or quality manager who manages user provisioning, configu
 ## Evidence basis for design choices
 | Design choice | Literature basis | Implication for product |
 |---|---|---|
-| Patient portal foundation | Portals are associated with improved health awareness, communication, and therapy adherence, but utilization effects are mixed.[cite:1] | Use a portal as the base, but add active workflow support rather than passive record viewing. |
-| Tailored education and alerts | Portal interventions commonly use tailored alerts and educational resources, with positive effects on knowledge, self-efficacy, medication adherence, and preventive behaviors.[cite:2] | Prioritize reminders, tailored education, and behavior-support features. |
-| Equity-aware onboarding | Portal studies often involve more advantaged users, and adoption gaps exist by race, income, age, and literacy.[cite:1][cite:2] | Include plain language, accessibility, multilingual content, low-friction onboarding, and digital inclusion measures. |
-| GenAI for education | Reviews suggest GenAI can improve readability, personalization, and health literacy support, but evidence remains moderate and safety concerns are substantial.[cite:3][cite:4][cite:5] | Restrict GenAI to education and navigation support with clinician review and guardrails. |
+| Patient portal foundation | Portals are associated with improved health awareness, communication, and therapy adherence, but utilization effects are mixed.| Use a portal as the base, but add active workflow support rather than passive record viewing. |
+| Tailored education and alerts | Portal interventions commonly use tailored alerts and educational resources, with positive effects on knowledge, self-efficacy, medication adherence, and preventive behaviors. | Prioritize reminders, tailored education, and behavior-support features. |
+| Equity-aware onboarding | Portal studies often involve more advantaged users, and adoption gaps exist by race, income, age, and literacy. | Include plain language, accessibility, multilingual content, low-friction onboarding, and digital inclusion measures. |
+| GenAI for education | Reviews suggest GenAI can improve readability, personalization, and health literacy support, but evidence remains moderate and safety concerns are substantial. | Restrict GenAI to education and navigation support with clinician review and guardrails. |
 
 ## System vision
-The platform should function as a “digital safety net” for the first 30 days after discharge and for ongoing chronic disease follow-up. Instead of assuming the patient can interpret medication changes independently, the system translates plans into clear daily actions, confirms understanding, monitors barriers, and routes concerning signals to care teams.[cite:1][cite:2][cite:3]
+The platform should function as a “digital safety net” for the first 30 days after discharge and for ongoing chronic disease follow-up. Instead of assuming the patient can interpret medication changes independently, the system translates plans into clear daily actions, confirms understanding, monitors barriers, and routes concerning signals to care teams.
 
 ## Functional requirements
 ### FR-1 Authentication and account management
@@ -82,7 +82,7 @@ The platform should function as a “digital safety net” for the first 30 days
 - The system shall store demographic and contact details, preferred language, consent preferences, and caregiver contact.
 - The system shall store clinical context required for the application workflow, including diagnoses, allergies, medication list, discharge date, and follow-up appointments.
 - The system shall allow clinicians to update care context fields relevant to patient education and monitoring.
-- The system shall display patient-friendly summaries that avoid unnecessary jargon.[cite:3][cite:4]
+- The system shall display patient-friendly summaries that avoid unnecessary jargon.
 
 ### FR-3 Medication management
 - The system shall present a current medication list with dosage, route, timing, indication, and special instructions.
@@ -91,7 +91,7 @@ The platform should function as a “digital safety net” for the first 30 days
 - The system shall allow patients to record reasons for non-adherence such as side effects, cost, confusion, or refill barriers.
 - The system shall allow clinicians to review adherence history.
 - The system shall generate refill reminders for time-sensitive medications.
-- The system shall highlight possible adherence risk when doses are repeatedly missed.[cite:1][cite:2]
+- The system shall highlight possible adherence risk when doses are repeatedly missed.
 
 ### FR-4 Discharge plan and task tracking
 - The system shall display a structured discharge plan containing medications, appointments, monitoring tasks, red-flag symptoms, and self-care actions.
@@ -122,14 +122,14 @@ The platform should function as a “digital safety net” for the first 30 days
 - The system shall allow clinicians or admins to approve and retire content.
 
 ### FR-8 GenAI patient education assistant
-- The system shall generate patient-specific, plain-language summaries of discharge instructions and medication explanations from structured clinical inputs.[cite:3][cite:4][cite:5]
+- The system shall generate patient-specific, plain-language summaries of discharge instructions and medication explanations from structured clinical inputs.
 - The system shall allow patients to ask questions in natural language about medications, appointments, and self-care topics.
-- The system shall ground responses in approved internal content and structured patient data rather than unrestricted open-ended generation.[cite:4][cite:5]
-- The system shall present responses with a safety disclaimer stating that the tool does not replace urgent clinical evaluation.[cite:4][cite:5]
-- The system shall block or redirect prompts seeking diagnosis, emergency triage beyond defined rules, prescription changes, or unsafe medical advice.[cite:4][cite:5]
+- The system shall ground responses in approved internal content and structured patient data rather than unrestricted open-ended generation.
+- The system shall present responses with a safety disclaimer stating that the tool does not replace urgent clinical evaluation.
+- The system shall block or redirect prompts seeking diagnosis, emergency triage beyond defined rules, prescription changes, or unsafe medical advice.
 - The system shall log prompts, responses, source references, confidence flags, and handoff events.
 - The system shall allow clinicians to review AI-generated summaries before release in strict mode, or allow post-hoc review in supervised mode.
-- The system shall support a readability target and a configurable output style, for example CEFR or grade-level settings, to improve health literacy.[cite:3][cite:4][cite:5]
+- The system shall support a readability target and a configurable output style, for example CEFR or grade-level settings, to improve health literacy.
 
 ### FR-9 Clinician dashboard
 - The system shall provide a dashboard of assigned patients with adherence, engagement, and symptom status.
@@ -164,7 +164,7 @@ The platform should function as a “digital safety net” for the first 30 days
 - The system shall store audit logs for all sensitive actions.
 - The system shall support configurable retention and deletion policies.
 - The system shall avoid using GenAI providers in a way that trains public models on patient data.
-- The system shall mask or minimize sensitive data sent to the AI service whenever full context is unnecessary.[cite:4][cite:5]
+- The system shall mask or minimize sensitive data sent to the AI service whenever full context is unnecessary.
 
 ### NFR-2 Performance
 - The system should return standard API requests within 2 seconds under normal load.
@@ -178,7 +178,7 @@ The platform should function as a “digital safety net” for the first 30 days
 
 ### NFR-4 Usability and accessibility
 - The system shall follow WCAG 2.1 AA principles.
-- The patient interface shall use plain language and avoid unnecessary abbreviations.[cite:3][cite:4]
+- The patient interface shall use plain language and avoid unnecessary abbreviations.
 - The system shall support responsive design for mobile-first use.
 - The system shall allow larger text and high-contrast mode.
 
@@ -189,9 +189,9 @@ The platform should function as a “digital safety net” for the first 30 days
 - The system shall expose structured logs and health checks.
 
 ### NFR-6 Explainability and AI safety
-- The GenAI module shall provide traceable source grounding for generated educational responses where possible.[cite:4][cite:5]
+- The GenAI module shall provide traceable source grounding for generated educational responses where possible.
 - The system shall surface confidence or verification flags for clinician review.
-- The system shall maintain a complete audit trail of prompt, context class, model version, and user-visible output.[cite:4][cite:5]
+- The system shall maintain a complete audit trail of prompt, context class, model version, and user-visible output.
 
 ## Detailed feature specification
 ### 1. Patient home dashboard
@@ -269,7 +269,7 @@ The platform should function as a “digital safety net” for the first 30 days
 
 **Business rules:**
 - Only approved knowledge domains are answerable.
-- Emergency or medication-change prompts trigger safe handoff rather than direct advice.[cite:4][cite:5]
+- Emergency or medication-change prompts trigger safe handoff rather than direct advice.
 - Output must cite internal source snippets in the UI where feasible.
 - All outputs are stored for audit and quality review.
 
@@ -410,14 +410,14 @@ The platform should function as a “digital safety net” for the first 30 days
 
 ## AI component design
 ### AI use case boundaries
-The GenAI component should be framed as a patient education and navigation assistant, not a diagnostic engine. This is aligned with current literature, which supports GenAI for readability and personalized health literacy support while warning against unverified autonomous clinical use.[cite:3][cite:4][cite:5]
+The GenAI component should be framed as a patient education and navigation assistant, not a diagnostic engine. This is aligned with current literature, which supports GenAI for readability and personalized health literacy support while warning against unverified autonomous clinical use.
 
 ### Proposed AI features
 - Plain-language discharge summary generation.
 - Medication explanation generator: “What is this medicine for?”
 - Question answering over approved educational content and the patient’s structured care plan.
 - Message drafting assistance for clinicians responding to common patient questions.
-- Content readability adaptation for low health literacy or multilingual contexts.[cite:3][cite:4][cite:5]
+- Content readability adaptation for low health literacy or multilingual contexts.
 
 ### AI guardrails
 - Retrieval-augmented generation over approved content only.
@@ -425,12 +425,12 @@ The GenAI component should be framed as a patient education and navigation assis
 - PHI minimization before model calls when feasible.
 - Automatic refusal for diagnosis, dosage changes, or emergency substitution.
 - Human review workflow for high-risk outputs.
-- Logging and periodic audit of unsafe or low-quality responses.[cite:4][cite:5]
+- Logging and periodic audit of unsafe or low-quality responses.
 
 ## Privacy, ethics, and governance
-This project should explicitly discuss socio-technical risks, not only functionality. Portal and AI interventions can worsen inequities when literacy, language, trust, or access barriers are ignored, and current literature repeatedly notes underrepresentation of more vulnerable populations in portal studies.[cite:1][cite:2]
+This project should explicitly discuss socio-technical risks, not only functionality. Portal and AI interventions can worsen inequities when literacy, language, trust, or access barriers are ignored, and current literature repeatedly notes underrepresentation of more vulnerable populations in portal studies.
 
-Governance requirements should therefore include transparent consent, accessibility, multilingual design, reviewable AI outputs, role-based auditing, and clear escalation boundaries. The AI module must be explainable enough for clinician oversight and conservative enough to avoid presenting speculative medical advice as fact.[cite:3][cite:4][cite:5]
+Governance requirements should therefore include transparent consent, accessibility, multilingual design, reviewable AI outputs, role-based auditing, and clear escalation boundaries. The AI module must be explainable enough for clinician oversight and conservative enough to avoid presenting speculative medical advice as fact.
 
 ## Evaluation plan
 ### Process metrics

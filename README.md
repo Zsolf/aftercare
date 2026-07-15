@@ -3,8 +3,6 @@
 ## Project overview
 AfterCare is a full-stack Spring Boot portfolio project for health informatics focused on poor medication adherence and weak post-discharge self-management during care transitions for patients with chronic disease. Systematic reviews of patient portals show that portal interventions are generally associated with better medication adherence, improved preventive behaviors, and stronger patient knowledge, but clinical outcomes remain mixed and portal use is often uneven across population groups.The project therefore centers on a portal-plus-coordination platform that does more than display records: it actively supports discharge follow-up, medication understanding, refill adherence, symptom monitoring, and secure communication.
 
-The project is intended as a modern, realistic portfolio application that demonstrates informatics thinking, full-stack engineering, clinical workflow modeling, interoperability awareness, privacy-by-design, analytics, and responsible GenAI integration. It is suitable for a final-year software project, job portfolio, or applied digital health case study because it combines an operational care pathway with measurable outcomes and evidence-based design choices.
-
 ## Problem statement
 A persistent modern healthcare issue is the drop in support that many patients experience immediately after discharge or between outpatient visits. Patients often leave care settings with medication changes, follow-up tasks, self-management instructions, and unresolved questions, yet portal use is inconsistent and the evidence suggests that benefit depends heavily on engagement, communication, and tailored support.
 

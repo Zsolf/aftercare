@@ -2,12 +2,13 @@ package com.zsolf.aftercare;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-class AftercareApplicationTests {
+@ActiveProfiles("test")
+class AfterCareApplicationTests {
 
     @Test
     void contextLoads() {
     }
-
 }

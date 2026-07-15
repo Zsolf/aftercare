@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: aftercaredb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: aftercaresql
+    ports:
+      - "5432:5432"
+    volumes:
+      - aftercare_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d aftercaredb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  aftercare_pg_data:
